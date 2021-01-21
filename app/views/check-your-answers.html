@@ -14,36 +14,49 @@
 
       <h1 class="govuk-heading-xl">Check your answers before sending your application</h1>
 
-      <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Number of balls you can juggle
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['juggling-balls'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="juggling-balls">
-              Change
-              <span class="govuk-visually-hidden"> number of balls you can juggle</span>
-            </a>
-          </dd>
-        </div>
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key">
-            Your most impressive juggling trick
-          </dt>
-          <dd class="govuk-summary-list__value">
-            {{ data['juggling-trick'] }}
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a href="juggling-trick">
-              Change
-              <span class="govuk-visually-hidden"> your most impressive juggling trick</span>
-            </a>
-          </dd>
-        </div>
-      </dl>
+      {{ govukSummaryList ({
+        rows: [
+          {
+            key: {
+              text: 'Number of balls you can juggle'
+            },
+            value: {
+              text: data['juggling-balls']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/juggling-balls",
+                  text: "Change",
+                  visuallyHiddenText: "number of balls you can juggle"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
+
+      {{ govukSummaryList ({
+        rows: [
+          {
+            key: {
+              text: 'Your most impressive juggling trick'
+            },
+            value: {
+              text: data['juggling-trick']
+            },
+            actions: {
+              items: [
+                {
+                  href: "/juggling-trick",
+                  text: "Change",
+                  visuallyHiddenText: "number of balls you can juggle"
+                }
+              ]
+            }
+          }
+        ]
+      }) }}
 
       <h2 class="govuk-heading-m">Application details</h2>
 

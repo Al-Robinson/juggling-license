@@ -17,9 +17,15 @@
 
       <form class="form" action="check-your-answers" method="post">
 
-        <div class="govuk-form-group">
-          <textarea class="govuk-textarea" id="more-detail" name="juggling-trick" rows="5" aria-describedby="more-detail-hint">{{ data['juggling-trick'] }} </textarea>
-        </div>
+  {{ govukTextarea ({
+        id: 'juggling-trick',
+        name: 'juggling-trick',
+        value: data['juggling-trick'] if data['juggling-trick'] else '',
+        label: {
+          text: 'What is your most impressive juggling?',
+          classes: "govuk-visually-hidden"
+        }
+      }) }}
 
         <button class="govuk-button" data-module="govuk-button">Continue</button>
 
